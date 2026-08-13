@@ -27,7 +27,7 @@ public class UserAccountController {
     @PostMapping("/signup")
     public String signup(@Validated @ModelAttribute("form") UserForm form) {
         System.out.println("form = " + form); // 실무에서는 패스워드 포함된 폼 값은 마스킹 등 처리 없이 로깅 X
-//        userAccountService.create(form);
+        userAccountService.create(form);
         return "redirect:/";
     }
 

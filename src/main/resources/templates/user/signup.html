@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,5 +9,18 @@
 </head>
 <body>
 <h1>가입</h1>
+<section>
+    <!--  th:action -> csrf  -->
+    <form
+            method="post"
+            th:action="@{/signup}"
+            th:object="${form}"
+            style="display: flex; flex-direction: column; gap: 8px; align-items: start;"
+    >
+        <label>유저이름 : <input th:field="*{username}"/></label>
+        <label>비밀번호 : <input th:field="*{password}"/></label>
+        <button>가입</button>
+    </form>
+</section>
 </body>
 </html>
