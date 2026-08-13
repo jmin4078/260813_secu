@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>소셜 로그인</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <h1>가입</h1>
@@ -15,10 +16,9 @@
             method="post"
             th:action="@{/signup}"
             th:object="${form}"
-            style="display: flex; flex-direction: column; gap: 8px; align-items: start;"
     >
         <label>유저이름 : <input th:field="*{username}"/></label>
-        <label>비밀번호 : <input th:field="*{password}"/></label>
+        <label>비밀번호 : <input type="password" th:field="*{password}"/></label>
         <button>가입</button>
     </form>
 </section>
