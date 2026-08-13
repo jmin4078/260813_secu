@@ -17,6 +17,7 @@ public class CommentService {
     private final UserAccountRepository userAccountRepository;
     // user보다는 owner, writer
 
+    @Transactional
     public void create(long userId, String content) {
         UserAccountEntity user = userAccountRepository
                 .findById(userId).orElseThrow();

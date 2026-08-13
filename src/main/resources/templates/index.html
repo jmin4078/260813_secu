@@ -19,6 +19,7 @@
     <form method="post" th:action="@{/logout}">
         <button>로그아웃</button>
     </form>
+    <a href="/comment">댓글 쓰러가기</a>
     <p>유저이름 : <span sec:authentication="name"></span></p>
     <p>유저ID : <span th:text="${#authentication.principal.id}"></span></p>
     <p>권한목록 : <span sec:authentication="principal.authorities"></span></p>
