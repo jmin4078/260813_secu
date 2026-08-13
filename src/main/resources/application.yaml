@@ -3,6 +3,9 @@ spring:
     name: secu
   profiles:
     active: dev,db
+app:
+  security:
+    encoding-id: argon2
 ---
 spring:
   config:

@@ -1,4 +1,4 @@
-package org.example.secu.domain.service;
+package org.example.secu.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.secu.domain.repository.UserAccountRepository;
