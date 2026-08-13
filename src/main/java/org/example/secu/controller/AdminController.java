@@ -16,6 +16,7 @@ public class AdminController {
     @GetMapping
     public String page(Model model) {
         model.addAttribute("data", commentService.findAll());
+        model.addAttribute("admin", true);
         return "comment/page";
     }
 }

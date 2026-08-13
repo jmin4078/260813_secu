@@ -21,7 +21,7 @@ public class UserAccountService {
         String encoded = passwordEncoder.encode(form.password());
         UserAccountEntity user = UserAccountEntity.builder()
                 .username(form.username())
-                .password(encoded)
+                .password(encoded) // DB에 패스워드를 그냥 저장하면 바로 법 위반
                 .role("user")
                 .build();
         userAccountRepository.save(user);

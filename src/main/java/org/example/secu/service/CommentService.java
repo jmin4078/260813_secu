@@ -33,4 +33,13 @@ public class CommentService {
 //        return commentRepository.findAll();
         return commentRepository.findAllWithUser();
     }
+
+    public CommentEntity findById(Long id) {
+        return commentRepository.getReferenceById(id);
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        commentRepository.deleteById(id);
+    }
 }
