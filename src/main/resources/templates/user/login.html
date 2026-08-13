@@ -18,6 +18,7 @@
     <label>유저이름 : <input th:field="*{username}"/></label>
     <label>비밀번호 : <input type="password" th:field="*{password}"/></label>
     <button>로그인</button>
+    <a th:href="@{/oauth2/authorization/kakao}">카카오 로그인</a>
 </form>
 </body>
 </html>

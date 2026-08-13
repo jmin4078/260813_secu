@@ -2,7 +2,7 @@ spring:
   application:
     name: secu
   profiles:
-    active: dev,db
+    active: dev,db,kakao
 app:
   security:
     encoding-id: argon2

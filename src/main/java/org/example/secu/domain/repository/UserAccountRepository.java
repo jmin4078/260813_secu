@@ -7,4 +7,7 @@ import java.util.Optional;
 
 public interface UserAccountRepository extends JpaRepository<UserAccountEntity, Long> {
     Optional<UserAccountEntity> findByUsername(String username);
+
+    // Social
+    Optional<UserAccountEntity> findBySocialIdAndSocialProvider(String socialId, String socialProvider);
 }

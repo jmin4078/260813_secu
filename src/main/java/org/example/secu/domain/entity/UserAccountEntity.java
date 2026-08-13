@@ -20,4 +20,7 @@ public class UserAccountEntity {
     private String password;
     @Column(nullable = false)
     private String role;
+    // SocialLogin
+    private String socialProvider; // kakao, google
+    private String socialId;
 }
