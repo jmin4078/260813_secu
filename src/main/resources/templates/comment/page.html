@@ -13,5 +13,12 @@
     <label>내용 : <input type="text" name="content"></label>
     <button>작성</button>
 </form>
+<section>
+    <div th:each="comment : ${data}">
+        <p>댓글ID : [[${comment.id}]]</p>
+        <p>내용 : [[${comment.content}]]</p>
+        <p>작성자 : [[${comment.user.username}]]</p>
+    </div>
+</section>
 </body>
 </html>

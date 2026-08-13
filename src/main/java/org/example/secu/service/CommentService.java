@@ -9,6 +9,8 @@ import org.example.secu.domain.repository.UserAccountRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -26,5 +28,9 @@ public class CommentService {
                 .content(content)
                 .build();
         commentRepository.save(comment);
+    }
+    public List<CommentEntity> findAll() {
+//        return commentRepository.findAll();
+        return commentRepository.findAllWithUser();
     }
 }
