@@ -1,6 +1,8 @@
 package org.example.secu.config;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.RequiredArgsConstructor;
+import org.example.secu.service.CustomOAuth2UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import java.util.Map;
 
 @Configuration
+@RequiredArgsConstructor
 public class SecurityConfig {
     // 1. password encoder
     @Bean
@@ -29,6 +32,8 @@ public class SecurityConfig {
                 "argon2", Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8());
         return new DelegatingPasswordEncoder(encodingId, enc);
     }
+
+    private final CustomOAuth2UserService customOAuth2UserService;
 
     // 2. filter chain
     @Bean
@@ -50,6 +55,8 @@ public class SecurityConfig {
                 .oauth2Login(o -> o
                         .loginPage("/login")
                         .defaultSuccessUrl("/", true)
+                        .userInfoEndpoint(ui -> ui
+                                .userService(customOAuth2UserService))
                 )
                 .logout(logout -> logout.logoutSuccessUrl("/"))
                 .build();
