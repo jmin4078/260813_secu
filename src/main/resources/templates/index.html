@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -11,5 +11,17 @@
 <h1>소셜 로그인</h1>
 <a href="/signup">가입</a>
 <a href="/login">로그인</a>
+<section sec:authorize="isAnonymous()">
+    <p>로그인이 필요합니다</p>
+</section>
+<section sec:authorize="isAuthenticated()">
+    <p>반갑습니다</p>
+    <form method="post" th:action="@{/logout}">
+        <button>로그아웃</button>
+    </form>
+    <p>유저이름 : <span sec:authentication="name"></span></p>
+    <p>유저ID : <span th:text="${#authentication.principal.id}"></span></p>
+    <p>권한목록 : <span sec:authentication="principal.authorities"></span></p>
+</section>
 </body>
 </html>
