@@ -1,6 +1,5 @@
 package org.example.secu.domain.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 

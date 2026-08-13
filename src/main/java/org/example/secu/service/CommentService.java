@@ -1,6 +1,5 @@
 package org.example.secu.service;
 
-
 import lombok.RequiredArgsConstructor;
 import org.example.secu.domain.entity.CommentEntity;
 import org.example.secu.domain.entity.UserAccountEntity;
@@ -29,6 +28,7 @@ public class CommentService {
                 .build();
         commentRepository.save(comment);
     }
+
     public List<CommentEntity> findAll() {
 //        return commentRepository.findAll();
         return commentRepository.findAllWithUser();

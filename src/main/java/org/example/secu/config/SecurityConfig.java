@@ -1,6 +1,5 @@
 package org.example.secu.config;
 
-
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -30,6 +29,7 @@ public class SecurityConfig {
                 "argon2", Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8());
         return new DelegatingPasswordEncoder(encodingId, enc);
     }
+
     // 2. filter chain
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
@@ -42,7 +42,6 @@ public class SecurityConfig {
                                 .requestMatchers("/", "/signup").permitAll()
                                 .anyRequest().authenticated()
                 )
-
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/", true)
